@@ -1,0 +1,45 @@
+{
+  "name": "clawd-irc-plugin",
+  "version": "1.0.0",
+  "description": "IRC Channel Plugin for OpenClaw — connect your agent to IRC servers",
+  "main": "index.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ryssroad/clawd-irc-plugin.git"
+  },
+  "homepage": "https://github.com/ryssroad/clawd-irc-plugin",
+  "author": "ryssroad",
+  "keywords": ["openclaw", "plugin", "irc", "channel"],
+  "openclaw": {
+    "extensions": ["./index.ts"],
+    "channel": {
+      "id": "irc",
+      "label": "IRC",
+      "selectionLabel": "IRC (Internet Relay Chat)",
+      "blurb": "IRC channel plugin for OpenClaw.",
+      "aliases": ["irc"]
+    },
+    "install": {
+      "postInstall": "npm install",
+      "configHint": {
+        "channels.irc.accounts.default": {
+          "server": "irc.libera.chat",
+          "port": 6667,
+          "nickname": "YourBot",
+          "channels": ["#your-channel"]
+        },
+        "plugins.entries.irc": {
+          "enabled": true
+        }
+      }
+    }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "irc-framework": "^4.14.0"
+  }
+}

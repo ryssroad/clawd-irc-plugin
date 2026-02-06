@@ -1,0 +1,32 @@
+{
+  "$schema": "https://docs.openclaw.ai/schemas/plugin.json",
+  "id": "irc",
+  "name": "IRC",
+  "description": "IRC Channel Plugin for OpenClaw",
+  "channels": ["irc"],
+  "configSchema": {
+    "type": "object",
+    "properties": {
+      "accounts": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "object",
+          "properties": {
+            "server": { "type": "string" },
+            "port": { "type": "number", "default": 6667 },
+            "nickname": { "type": "string" },
+            "channels": { "type": "array", "items": { "type": "string" } },
+            "enabled": { "type": "boolean", "default": true }
+          },
+          "required": ["server", "nickname"]
+        }
+      }
+    }
+  },
+  "uiHints": {
+    "accounts.*.server": { "label": "IRC Server", "placeholder": "irc.libera.chat" },
+    "accounts.*.port": { "label": "Port" },
+    "accounts.*.nickname": { "label": "Nickname" },
+    "accounts.*.channels": { "label": "Auto-join Channels" }
+  }
+}
