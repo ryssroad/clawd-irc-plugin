@@ -1,5 +1,5 @@
 {
-  "name": "clawd-irc-plugin",
+  "name": "irc",
   "version": "1.0.0",
   "description": "IRC Channel Plugin for OpenClaw — connect your agent to IRC servers",
   "main": "index.ts",
