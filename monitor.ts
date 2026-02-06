@@ -24,8 +24,15 @@ export async function monitorIrc(params: any) {
     logger.info?.(`[${accountId}] Connected as ${account.nickname}`);
     if (account.channels) {
       for (const channel of account.channels) {
+        logger.info?.(`[${accountId}] Joining ${channel}`);
         client.join(channel);
       }
+    }
+  });
+
+  client.on("join", (event: any) => {
+    if (event.nick === client.user.nick) {
+      logger.info?.(`[${accountId}] Joined ${event.channel}`);
     }
   });
 
