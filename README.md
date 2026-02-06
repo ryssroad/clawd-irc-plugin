@@ -52,6 +52,22 @@ Add the following to your `openclaw.json`:
 | `nickname` | string | yes | — | Bot nickname |
 | `channels` | string[] | no | [] | Channels to auto-join |
 
+### Multiple channels
+
+The bot can monitor multiple channels simultaneously:
+
+```json
+"channels": ["#general", "#support", "#dev"]
+```
+
+### Direct messages
+
+The plugin automatically handles:
+- **Channel messages** (`#channel`) — bot responds in the channel, prefixing replies with the sender's nick
+- **Direct messages** (private) — bot responds directly to the sender
+
+No additional configuration needed — DM support works out of the box.
+
 ## How it works
 
 - **`index.ts`** — entry point, registers the channel plugin with OpenClaw
